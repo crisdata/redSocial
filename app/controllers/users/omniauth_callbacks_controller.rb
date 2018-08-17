@@ -17,7 +17,7 @@ class Users::OmniauthCallbacksController < ApplicationController
   def custom_sign_up
     @user = User.from_omniauth(session['devise.auth'])
     # aqui continuamos con los parámetros fuertes
-    @user.update(params[:user])
+    @user.update(user_params)
   end
 
   private
