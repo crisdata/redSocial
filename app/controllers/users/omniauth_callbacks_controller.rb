@@ -6,6 +6,7 @@ class Users::OmniauthCallbacksController < ApplicationController
     if @user.persisted?
       @user.remember_me = true
       sign_in_and_redirect @user, event: :authentication
+      return
     end
 
     session['devise.auth'] = request.env['omniauth.auth']
@@ -17,7 +18,11 @@ class Users::OmniauthCallbacksController < ApplicationController
   def custom_sign_up
     @user = User.from_omniauth(session['devise.auth'])
     # aqui continuamos con los parámetros fuertes
-    @user.update(user_params)
+    if @user.update(user_params)
+      sign_in_and_redirect @user, event: :authentication
+    else
+      render :edit
+    end
   end
 
   private
