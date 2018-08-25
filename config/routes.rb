@@ -6,7 +6,15 @@ Rails.application.routes.draw do
 
   post '/custom_sign_up', to: 'users/omniauth_callbacks#custom_sign_up'
 
-  root 'main#home'
+  # Si esta autenticado lo envio a la pagina de inicio
+  authenticated :user do
+    root 'main#home'
+  end
+
+  # Si no esta registrado lo envio a unregistered
+  unauthenticated :user do
+    root 'main#unregistered'
+  end
 
   # 1. Mandar una peticion a facebook
   # 2. Facebook retornara a nuestra app callback_url

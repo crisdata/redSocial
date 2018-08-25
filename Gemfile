@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'haml-rails'
 gem 'devise', github: "plataformatec/devise"
 gem 'omniauth-facebook'
+gem 'flexbox_rb'
 
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
