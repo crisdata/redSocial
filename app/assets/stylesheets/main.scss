@@ -1,3 +1,8 @@
 // Place all the styles related to the Main controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.main-background{
+  background-image: url(#{asset_path('background.jpg')}); // Metodo de interpolacion de Ruby unido con Sass
+  background-size: cover; //cover adapta el ancho de la imagen y es responsive
+  background-repeat: none;
+}
