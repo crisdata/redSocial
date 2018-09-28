@@ -1,0 +1,17 @@
+%header.mdl-layout__header.mdl-layout__header--scroll
+  .mdl-layout__header-row
+    <!-- Title -->
+    %span.mdl-layout-title OpenMind
+    <!-- Add spacer, to align navigation to the right -->
+    .mdl-layout-spacer
+    <!-- Navigation -->
+    %nav.mdl-navigation
+      // Resource  user
+      // Registro/sesion
+      // Metodo
+      -if user_signed_in?
+        =link_to "Cerrar Sesión",destroy_user_session_path,method: :delete,class:"white-text"
+.mdl-layout__drawer
+  %span.mdl-layout-title OpenMind
+  %nav.mdl-navigation
+  / Son los links que aparecen en el layout__drawer
